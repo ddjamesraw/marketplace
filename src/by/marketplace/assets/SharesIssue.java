@@ -2,8 +2,7 @@ package by.marketplace.assets;
 
 import java.util.Date;
 
-import by.marketplace.bank.Account;
-import by.marketplace.emitent.Emitent;
+import by.marketplace.misc.Entity;
 
 /**
  * Объекты этого класса представляют выпуск
@@ -12,85 +11,83 @@ import by.marketplace.emitent.Emitent;
  * @author A.Lagunov
  *
  */
-public class SharesIssue {
+public class SharesIssue extends SecuritiesIssue{
+	@Override
+	public boolean equals(Object o) {
+		try {
+			SharesIssue si = (SharesIssue) o;
+			if (si.getRegNumber()==this.getRegNumber()) {
+				return true;
+			}
+		} catch (ClassCastException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return false;
+	}
 	
-	/**
-	 * Эмитент
-	 */
-	private Emitent emitent;
-	
-	/**
-	 * Тикер
-	 */	
-	private String ticker;
-	
-	/**
-	 * Дата регистрации
-	 */
-	private Date regdate;
+	public void setPrivileged(boolean privileged) {
+		this.privileged = privileged;
+	}
 
-	/**
-	 * Номер регистрации
-	 */
-	private String regnumber;
+	public void setFollowOnDate(Date followOnDate) {
+		this.followOnDate = followOnDate;
+	}
+
+	public void setFollowOnVolume(double followOnVolume) {
+		this.followOnVolume = followOnVolume;
+	}
+
+	public void setPartlyAnnulation(boolean partlyAnnulation) {
+		this.partlyAnnulation = partlyAnnulation;
+	}
+
+	public void setStoreDate(Date storeDate) {
+		this.storeDate = storeDate;
+	}
+
+	public boolean isPrivileged() {
+		return privileged;
+	}
+
+	public Date getFollowOnDate() {
+		return followOnDate;
+	}
+
+	public double getFollowOnVolume() {
+		return followOnVolume;
+	}
+
+	public boolean isPartlyAnnulation() {
+		return partlyAnnulation;
+	}
+
+	public Date getStoreDate() {
+		return storeDate;
+	}
 	
 	/**
-	 * Код выпуска
-	 */
-	private String code;
-	
-	/**
-	 * Номер выпуска
-	 */
-	private int number;
-	
-	/**
-	 * Серия выпуска
-	 */
-	private String batch;
-	
-	/**
-	 * Номинальная стоимость
-	 */
-	private double nominalValue;
-	
-	/**
-	 * Валюта номинала
-	 */
-	private Currency currency;
-	
-	/**
-	 * Объем выпуска в валюте номинала
-	 */
-	private double volume;
-	
-	/**
-	 * Количество в выпуске
-	 */
-	private int quantity;
-	
-	/**
-	 * Привелигированные?
+	 * Is privileged
 	 */
 	private boolean privileged;
 	
 	/**
-	 * Дата регистрации доп эмиссии
+	 * Registration date of additional issue
 	 */
 	private Date followOnDate;
 	
 	/**
-	 * Объём доп эмиссии
+	 * Volume of additional issue
 	 */
 	private double followOnVolume;
 	
 	/**
-	 * Частичное аннулирование
+	 * Parly annulation
 	 */
 	private boolean partlyAnnulation;
 	
 	/**
-	 * Дата передачи на централизованное хранение
+	 * Date of storing
 	 */
 	private Date storeDate;
 
