@@ -1,11 +1,11 @@
 package by.marketplace.assets;
 /**
- * Class represents abstract economic resource
+ * This class represents abstract economic resource
  * 
  * @author A.Lagunov
  *
  */
-public abstract class Assets {
+public abstract class Assets implements MonetaryValue {
 	MonetaryValue monetaryValue;
 	/**
 	 * Using 'strategy' pattern to delegate responsibility

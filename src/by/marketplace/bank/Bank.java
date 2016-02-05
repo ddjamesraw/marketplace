@@ -3,6 +3,8 @@ package by.marketplace.bank;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import by.marketplace.bank.account.Account;
+import by.marketplace.bank.account.BankAccountFactory;
 import by.marketplace.misc.*;
 import by.marketplace.misc.Entity;
 
@@ -14,18 +16,32 @@ import by.marketplace.misc.Entity;
  */
 public class Bank {
 	
-	private String name;
+	private BankAccountFactory accountFactory;
+	
 	private TreeMap<Identifier,ArrayList<Account>> accounts = new TreeMap<Identifier,ArrayList<Account>>();
-	/**
-	 * Add
-	 * @param ownerId
-	 */
-	public void addAccount(Identifier ownerId) {
-		if (this.accounts.containsKey(ownerId)) {
-			this.accounts.get(ownerId).add(new Account());
-		} else {
-			this.accounts.put(ownerId, new ArrayList<Account>());
-		}
+	
+	private String name;
+	
+	private String code;	
+	
+	public Bank() {
+		
+		this.accountFactory = new BankAccountFactory(this);
+		
+		
 	}
-
+	
+	public String getCode() {
+		return code;
+	}
+	
+	/**
+	 * Returns how much accounts are held by the holder
+	 */
+	public int getAccountsCount(Entity holder) {
+		if (accounts.containsKey(holder.getId())) {
+			return accounts.get(holder.getId()).size(); 
+		}
+		return 0;
+	}
 }

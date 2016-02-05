@@ -1,6 +1,7 @@
-package by.marketplace.bank;
+package by.marketplace.bank.transaction;
 
 import by.marketplace.assets.Assets;
+import by.marketplace.bank.account.Account;
 /**
  * Account is debited when it is the destination
  * to which an asset is transfered

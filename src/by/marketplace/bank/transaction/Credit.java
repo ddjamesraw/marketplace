@@ -1,13 +1,14 @@
-package by.marketplace.bank;
+package by.marketplace.bank.transaction;
 
 import by.marketplace.assets.Assets;
+import by.marketplace.bank.account.Account;
 
 /**
  * Credit is a type of transaction when targeted account
  * is acting as the source of assets being transfered.
  * 
  * Every 'credite' operation has destination account
- * to which assets is to be transfered
+ * to which assets are to be transfered
  * 
  * @author A.Lagunov
  *

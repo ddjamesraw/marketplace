@@ -1,6 +1,6 @@
 package by.marketplace.assets;
 
-import by.marketplace.bank.Account;
+import by.marketplace.bank.account.Account;
 
 /**
  * Объекты, реализующие данный интерфейс могут быть переведены

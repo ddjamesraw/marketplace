@@ -1,4 +1,4 @@
-package by.marketplace.bank;
+package by.marketplace.bank.transaction;
 
 public class TransactionException extends Exception {
 
@@ -7,9 +7,9 @@ public class TransactionException extends Exception {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private TransactionErrorCode tec;
+	private TransactionError tec;
 	
-	public TransactionException(TransactionErrorCode tec) {
+	public TransactionException(TransactionError tec) {
 		this.tec = tec;
 	}
 

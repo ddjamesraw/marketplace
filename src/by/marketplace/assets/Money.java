@@ -2,16 +2,22 @@ package by.marketplace.assets;
 /**
  * Class used to represent some amount of money
  * of some currency
+ * 
+ * Money are kind of asset
+ * 
+ * Money obviously have monetary value
+ * 
  * @author A.Lagunov
  *
  */
-public class Money extends Assets{
+public class Money extends Assets implements MonetaryValue{
 	
 	private Currency currency;
 	
 	private double amount;
 
 	public Money(double amount,Currency currency) {
+		super(new Money(amount,currency));
 		this.currency = currency;
 		this.amount = amount;
 	}

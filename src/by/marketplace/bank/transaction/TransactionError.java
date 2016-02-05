@@ -1,11 +1,12 @@
-package by.marketplace.bank;
+package by.marketplace.bank.transaction;
 
-public enum TransactionErrorCode {
+public enum TransactionError {
 	DESTINATION_IS_FROZEN("Счет получателя заблокирован"), 
 	SOURCE_IS_FROZEN("Счет отправителя заблокирован"),
 	ACCOUNT_NOT_EXISTS("Счет не существует"),
-	INSUFFICIENT_ASSETS("Счет не содержит запрашиваемых активов");
-	TransactionErrorCode(String description) {
+	INSUFFICIENT_ASSETS("Счет не содержит запрашиваемых активов"),
+	WRONG_ACCOUNT_TYPE("Счёт не может принять активы даннного типа");
+	TransactionError(String description) {
 		this.description = description;
 	}
 	private String description;
