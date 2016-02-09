@@ -4,27 +4,32 @@ import java.util.Date;
 
 import by.marketplace.entities.Entity;
 
-/**
- * Объекты этого класса представляют выпуск
- * акций в целом
- * 
- * @author A.Lagunov
- *
- */
 public class SharesIssue extends SecuritiesIssue{
-	@Override
-	public boolean equals(Object o) {
-		try {
-			SharesIssue si = (SharesIssue) o;
-			if (si.getRegNumber()==this.getRegNumber()) {
-				return true;
-			}
-		} catch (ClassCastException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return false;
-	}
+
+	/**
+	 * Is privileged
+	 */
+	private boolean privileged;
+	
+	/**
+	 * Registration date of additional issue
+	 */
+	private Date followOnDate;
+	
+	/**
+	 * Volume of additional issue
+	 */
+	private double followOnVolume;
+	
+	/**
+	 * Parly annulation
+	 */
+	private boolean partlyAnnulation;
+	
+	/**
+	 * Date of storing
+	 */
+	private Date storeDate;
 	
 	public void setPrivileged(boolean privileged) {
 		this.privileged = privileged;
@@ -65,30 +70,4 @@ public class SharesIssue extends SecuritiesIssue{
 	public Date getStoreDate() {
 		return storeDate;
 	}
-	
-	/**
-	 * Is privileged
-	 */
-	private boolean privileged;
-	
-	/**
-	 * Registration date of additional issue
-	 */
-	private Date followOnDate;
-	
-	/**
-	 * Volume of additional issue
-	 */
-	private double followOnVolume;
-	
-	/**
-	 * Parly annulation
-	 */
-	private boolean partlyAnnulation;
-	
-	/**
-	 * Date of storing
-	 */
-	private Date storeDate;
-
 }

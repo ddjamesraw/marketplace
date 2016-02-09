@@ -6,7 +6,7 @@ package by.marketplace.assets;
  * @author A.Lagunov
  *
  */
-public class Money extends Asset implements MonetaryValue{
+public class Money extends Asset implements MonetaryValue, Tradeable{
 	
 	private Currency currency;
 	
@@ -53,6 +53,12 @@ public class Money extends Asset implements MonetaryValue{
 		} else {
 			return (int)Math.ceil(this.getNominalMonetaryValue().amount-value.getNominalMonetaryValue().amount);
 		}
+	}
+
+	@Override
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -8,7 +8,13 @@ public class Bonds extends Asset implements MonetaryValue, Tradeable{
 	 * What issue bonds are belong to
 	 */
 	private final BondsIssue issue;
-
+	
+	/**
+	 * How much coupons does this concrete
+	 * asset include
+	 */
+	private int couponQty;
+	
 	/**
 	 * Life cycle of this concrete coupon
 	 * in DAYS
@@ -24,8 +30,9 @@ public class Bonds extends Asset implements MonetaryValue, Tradeable{
 	
 	
 	
-	public Bonds(BondsIssue issue) {
+	public Bonds(BondsIssue issue, int qty) {
 		this.issue = issue;
+		this.couponQty = qty;
 	}
 
 
@@ -63,7 +70,7 @@ public class Bonds extends Asset implements MonetaryValue, Tradeable{
 	
 	@Override
 	public Money getNominalMonetaryValue() {
-		return null;
+		return new Money(this.issue.getNominalValue()*this.couponQty,this.issue.getCurrency());
 	}
 
 

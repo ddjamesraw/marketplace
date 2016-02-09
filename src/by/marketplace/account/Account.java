@@ -1,12 +1,11 @@
-package by.marketplace.bank.account;
+package by.marketplace.account;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
 import by.marketplace.util.*;
 import by.marketplace.assets.Asset;
-import by.marketplace.bank.transaction.Transaction;
+import by.marketplace.transaction.Transaction;
 
 public class Account implements Serializable{
 	
@@ -15,7 +14,7 @@ public class Account implements Serializable{
 	 */
 	private static final long serialVersionUID = -5769453449619547439L;
 	
-	private Queue<Transaction> transactionsPending;
+	private Queue<Transaction> transactionsPending = new Queue<Transaction>();
 	
 	private ArrayList<Transaction> transactionsSettled;
 	
@@ -26,12 +25,7 @@ public class Account implements Serializable{
 	}
 	
 	public void addTransaction(Transaction newTransaction) {
-		if (transactionsPending==null) {
-			transactionsPending = new Queue<Transaction>();
-			transactionsPending.enqueue(newTransaction);
-		} else {
-			transactionsPending.enqueue(newTransaction);
-		}
+		transactionsPending.enqueue(newTransaction);
 	}
 	
 	public void settle() {

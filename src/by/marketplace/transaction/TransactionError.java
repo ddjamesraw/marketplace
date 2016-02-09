@@ -1,4 +1,4 @@
-package by.marketplace.bank.transaction;
+package by.marketplace.transaction;
 
 public enum TransactionError {
 	DESTINATION_IS_FROZEN("Счет получателя заблокирован"), 

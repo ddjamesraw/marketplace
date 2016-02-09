@@ -11,6 +11,21 @@ import by.marketplace.entities.Entity;
  */
 public class BondsIssue extends SecuritiesIssue{
 	
+	/**
+	 * Life cycle in DAYS
+	 */
+	private int lifeCycle;
+	
+	/**
+	 * Date when issue can be payed for
+	 */
+	private Date issueMaturityDate;
+	
+	/**
+	 * interest rate
+	 */
+	private double interestRate;
+	
 	public int getLifeCycle() {
 		return lifeCycle;
 	}
@@ -34,20 +49,5 @@ public class BondsIssue extends SecuritiesIssue{
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
-
-	/**
-	 * Life cycle in DAYS
-	 */
-	private int lifeCycle;
-	
-	/**
-	 * Date when issue can be payed for
-	 */
-	private Date issueMaturityDate;
-	
-	/**
-	 * interest rate
-	 */
-	private double interestRate;
 	
 }

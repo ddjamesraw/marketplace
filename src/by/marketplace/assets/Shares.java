@@ -13,7 +13,6 @@ public class Shares extends Asset implements MonetaryValue,Tradeable{
 	private int quantity;
 	
 	public Shares(SharesIssue issue, int quantity) {
-		super(new SharesMonetaryValue(issue.getCurrency(),quantity,issue.getNominalValue()));
 		this.issue = issue;
 		this.quantity = quantity;
 	}
@@ -25,18 +24,17 @@ public class Shares extends Asset implements MonetaryValue,Tradeable{
 	public Money getNominalMonetaryValue() {
 		return new Money(issue.getNominalValue()*quantity, issue.getCurrency());
 	}
+
 	@Override
-	public boolean equals(Object o) {
-		try {
-			Shares share = (Shares) o;
-			if (share.issue.equals(this.issue) && share.quantity==this.quantity) {
-				return true;
-			}
-		} catch (ClassCastException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return false;
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int compareTo(Asset value) throws ClassCastException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

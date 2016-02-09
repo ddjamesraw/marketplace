@@ -1,4 +1,4 @@
-package by.marketplace.bank.transaction;
+package by.marketplace.transaction;
 
 import java.util.Date;
 

@@ -3,7 +3,7 @@ package by.marketplace.depository;
 import java.util.ArrayList;
 import java.util.Map;
 
-import by.marketplace.bank.account.Account;
+import by.marketplace.account.Account;
 import by.marketplace.entities.FinancialInstitution;
 import by.marketplace.entities.Identifier;
 
