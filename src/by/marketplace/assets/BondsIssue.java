@@ -2,7 +2,7 @@ package by.marketplace.assets;
 
 import java.util.Date;
 
-import by.marketplace.misc.Entity;
+import by.marketplace.entities.Entity;
 /**
  * Object of this class represent concrete issues of bonds
  * 

@@ -2,14 +2,14 @@ package by.marketplace.assets;
 
 import java.util.Date;
 
-import by.marketplace.misc.Entity;
+import by.marketplace.entities.Entity;
 
 /**
  * Class represent abstract securities issue
  * @author A.Lagunov
  *
  */
-public abstract class SecuritiesIssue {
+public abstract class SecuritiesIssue{
 
 	/**
 	 * Issuer

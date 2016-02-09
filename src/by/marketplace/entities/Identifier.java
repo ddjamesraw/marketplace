@@ -1,4 +1,4 @@
-package by.marketplace.misc;
+package by.marketplace.entities;
 
 /**
  * Unique identifier which use is to identify economic 

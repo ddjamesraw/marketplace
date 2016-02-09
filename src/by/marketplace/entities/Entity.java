@@ -1,4 +1,4 @@
-package by.marketplace.misc;
+package by.marketplace.entities;
 /**
  * Economic entity
  * 

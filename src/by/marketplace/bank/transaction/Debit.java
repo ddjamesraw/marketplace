@@ -1,6 +1,6 @@
 package by.marketplace.bank.transaction;
 
-import by.marketplace.assets.Assets;
+import by.marketplace.assets.Asset;
 import by.marketplace.bank.account.Account;
 /**
  * Account is debited when it is the destination
@@ -22,19 +22,19 @@ public class Debit extends Transaction{
 		this.source = source;
 	}
 
-	public Assets getAsset() {
+	public Asset getAsset() {
 		return asset;
 	}
 
-	public void setAsset(Assets asset) {
+	public void setAsset(Asset asset) {
 		this.asset = asset;
 	}
 
 	private Account source;
 	
-	private Assets asset;
+	private Asset asset;
 	
-	public Debit(Assets asset, Account source) {
+	public Debit(Asset asset, Account source) {
 		super(asset);
 		this.source = source;
 	}

@@ -1,23 +1,18 @@
 package by.marketplace.assets;
 /**
- * Class used to represent some amount of money
- * of some currency
- * 
- * Money are kind of asset
- * 
- * Money obviously have monetary value
+ * <p>Class represent some amount of money
+ * of some nominal currency</b>
  * 
  * @author A.Lagunov
  *
  */
-public class Money extends Assets implements MonetaryValue{
+public class Money extends Asset implements MonetaryValue{
 	
 	private Currency currency;
 	
 	private double amount;
 
 	public Money(double amount,Currency currency) {
-		super(new Money(amount,currency));
 		this.currency = currency;
 		this.amount = amount;
 	}
@@ -46,4 +41,18 @@ public class Money extends Assets implements MonetaryValue{
 	public Money getNominalMonetaryValue() {
 		return this;
 	}
+	/**
+	 * <p>User should convert values before comparison</p>
+	 * 
+	 * @throws Exception
+	 */
+	@Override
+	public int compareTo(Asset value) throws ClassCastException {
+		if (this.getNominalMonetaryValue().currency!=value.getNominalMonetaryValue().currency) {
+			throw new ClassCastException("Не могу сравнить номиналы разных валют");
+		} else {
+			return (int)Math.ceil(this.getNominalMonetaryValue().amount-value.getNominalMonetaryValue().amount);
+		}
+	}
+
 }

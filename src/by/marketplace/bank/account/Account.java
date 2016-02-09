@@ -1,74 +1,43 @@
 package by.marketplace.bank.account;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
-import by.marketplace.assets.*;
-import by.marketplace.bank.Bank;
-import by.marketplace.bank.transaction.Credit;
-import by.marketplace.bank.transaction.Debit;
+import by.marketplace.util.*;
+import by.marketplace.assets.Asset;
 import by.marketplace.bank.transaction.Transaction;
-import by.marketplace.bank.transaction.TransactionError;
-import by.marketplace.bank.transaction.TransactionException;
-import by.marketplace.misc.Entity;
-/**
- * Banking account
- * 
- * @author A.Lagunov
- *
- */
-public class Account {
+
+public class Account implements Serializable{
 	
-	private long name;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5769453449619547439L;
 	
-	private AccountType type;
+	private Queue<Transaction> transactionsPending;
 	
-	private ArrayList<Transaction> transactions;
+	private ArrayList<Transaction> transactionsSettled;
 	
-	boolean isFrozen;
+	private ArrayList<Asset> assets;
 	
-	public Account(AccountType type, long name) {
+	public Account() {
 		
-		this.type = type;
-		
-		this.setName(name);
 	}
 	
-	public boolean isFrozen() {
-		return isFrozen;
-	}
-
-	public void setFrozen(boolean isFrozen) {
-		this.isFrozen = isFrozen;
-	}
-
-	public ArrayList<Transaction> getTransactions() {
-		return transactions;
-	}
-	
-	protected void debit(Assets asset, Account source) throws TransactionException{
-		if (source.type==this.type) {
-			//!!!!!;
-		}
-		if (!isFrozen) {
-			this.transactions.add(new Debit(asset, source));
+	public void addTransaction(Transaction newTransaction) {
+		if (transactionsPending==null) {
+			transactionsPending = new Queue<Transaction>();
+			transactionsPending.enqueue(newTransaction);
 		} else {
-			throw new TransactionException(TransactionError.DESTINATION_IS_FROZEN);
+			transactionsPending.enqueue(newTransaction);
 		}
 	}
 	
-	protected void credit(Assets asset, Account destination) throws TransactionException {
-		if (!isFrozen) {
-			this.transactions.add(new Credit(asset, destination));
-		} else {
-			throw new TransactionException(TransactionError.SOURCE_IS_FROZEN);
+	public void settle() {
+		for (Transaction t:transactionsPending) {
+			
 		}
 	}
 
-	public long getName() {
-		return name;
-	}
-
-	public void setName(long name) {
-		this.name = name;
-	}
 }

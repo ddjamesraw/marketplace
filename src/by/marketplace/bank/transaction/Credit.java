@@ -1,6 +1,6 @@
 package by.marketplace.bank.transaction;
 
-import by.marketplace.assets.Assets;
+import by.marketplace.assets.Asset;
 import by.marketplace.bank.account.Account;
 
 /**
@@ -18,9 +18,9 @@ public class Credit extends Transaction {
 	
 	private Account destination;
 	
-	private Assets asset;
+	private Asset asset;
 	
-	public Credit(Assets asset, Account destination) {
+	public Credit(Asset asset, Account destination) {
 		super(asset);
 		this.destination = destination;
 	}
@@ -33,12 +33,17 @@ public class Credit extends Transaction {
 		this.destination = destination;
 	}
 
-	public Assets getAsset() {
+	public Asset getAsset() {
 		return asset;
 	}
 
-	public void setAsset(Assets asset) {
+	public void setAsset(Asset asset) {
 		this.asset = asset;
+	}
+
+	@Override
+	public int compareTo(Transaction transaction) {
+		return this.getAsset().getNominalMonetaryValue().compareTo(transaction.getAsset().getNominalMonetaryValue());
 	}
 
 }

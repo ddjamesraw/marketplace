@@ -2,7 +2,12 @@ package by.marketplace.assets;
 
 import java.util.Date;
 
-public class Bonds extends Assets implements MonetaryValue{
+public class Bonds extends Asset implements MonetaryValue, Tradeable{
+
+	/**
+	 * What issue bonds are belong to
+	 */
+	private final BondsIssue issue;
 
 	/**
 	 * Life cycle of this concrete coupon
@@ -19,8 +24,8 @@ public class Bonds extends Assets implements MonetaryValue{
 	
 	
 	
-	public Bonds(BondsIssue issue, int quantity) {
-		super(new BondsMonetaryValue(issue.getCurrency(),quantity,issue.getNominalValue()));
+	public Bonds(BondsIssue issue) {
+		this.issue = issue;
 	}
 
 
@@ -45,6 +50,27 @@ public class Bonds extends Assets implements MonetaryValue{
 
 	public void setCouponMaturityDate(Date couponMaturityDate) {
 		this.couponMaturityDate = couponMaturityDate;
+	}
+
+
+
+	@Override
+	public String getId() {
+		return this.issue.getCode();
+	}
+
+
+	
+	@Override
+	public Money getNominalMonetaryValue() {
+		return null;
+	}
+
+
+
+	@Override
+	public int compareTo(Asset value) throws ClassCastException {
+		return this.getNominalMonetaryValue().compareTo(value.getNominalMonetaryValue());
 	}
 
 }

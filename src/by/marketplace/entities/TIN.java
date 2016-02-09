@@ -1,4 +1,4 @@
-package by.marketplace.misc;
+package by.marketplace.entities;
 
 /**
  * Taxpayer Identification Number
@@ -10,6 +10,10 @@ public class TIN implements Identifier {
 
 	private String unn;
 
+	public TIN(String unn) {
+		this.unn = unn;
+	}
+	
 	@Override
 	public boolean equals(Identifier id) {
 		if (id.equals(this)) return true;

@@ -6,7 +6,7 @@ package by.marketplace.assets;
  * @author A.Lagunov
  *
  */
-public class Shares extends Assets implements MonetaryValue{
+public class Shares extends Asset implements MonetaryValue,Tradeable{
 
 	private SharesIssue issue;
 	

@@ -2,7 +2,7 @@ package by.marketplace.assets;
 
 import java.util.Date;
 
-import by.marketplace.misc.Entity;
+import by.marketplace.entities.Entity;
 
 /**
  * Объекты этого класса представляют выпуск
