@@ -8,3 +8,5 @@
 *.prefs
 *.container
 .settings/org.eclipse.wst.common.project.facet.core.xml
+/target/
+/test/
