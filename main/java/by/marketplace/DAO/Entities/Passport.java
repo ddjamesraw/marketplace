@@ -1,18 +1,27 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "passport")
-public class Passport {
+public class Passport implements Serializable{
 	
+	private static final long serialVersionUID = 4385479281922113498L;
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "passport_id")
+	private int passportId;
+	
 	@Column(name = "passport_sn", length = 45)
 	private String passportSN;
 	
-	@OneToOne(mappedBy = "passport")
+
+	@OneToOne
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	@Column(name = "fname", length = 45)
@@ -34,7 +43,7 @@ public class Passport {
 	@Column(name = "passport_issuer", length = 125)
 	private String passportIssuer;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date_of_issue")
 	private Date passportRegDate;
 
@@ -102,6 +111,17 @@ public class Passport {
 		return passportRegDate;
 	}
 
+	public User getUser() {
+		return user;
+	}
 
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.DOB.hashCode() + (int) Math.random()*999999;
+	}
 
 }

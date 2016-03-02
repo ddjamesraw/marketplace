@@ -1,4 +1,4 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -9,10 +9,10 @@ public class EntityType {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true, nullable = false, name = "entity_type_id")
+	@Column(name = "entity_type_id")
 	private int id;
 	
-	@Column(name = "entity_type_name", length = 45)
+	@Column(name = "entity_type_name")
 	private String name;
 
 	public int getId() {
@@ -31,4 +31,24 @@ public class EntityType {
 		this.name = name;
 	}
 
+}
+/**
+ * Warning! do not use ordinal() method as 
+ * it produces wrong IDs
+ * 
+ * @author A.Lagunov
+ *
+ */
+enum EntityTypeEnum {
+	User(1), Issuer(2);
+	
+	private EntityTypeEnum(int id) {
+		this.id = id;
+	}
+	
+	private int id;
+	
+	public int getId() {
+		return id;
+	}
 }

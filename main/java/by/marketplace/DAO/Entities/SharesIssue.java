@@ -1,45 +1,69 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
 import java.util.Date;
+import javax.persistence.*;
 
-public class SharesIssue {
-
-	private int id;
+@Entity
+@Table(name = "share_issue")
+@DiscriminatorValue("1")
+public class SharesIssue extends Asset{
 	
+	@Column(name = "privileged")
 	private boolean privileged;
 	
+	@Column(name = "ticker", length = 45)
 	private String ticker;
 	
+	@Column(name = "regdate")
+	@Temporal(TemporalType.DATE)
 	private Date regDate;
 	
+	@Column(name = "regnumber", length = 45)
 	private String regNumber;
 	
+	@Column(name = "code", length = 45)
 	private String code;
 	
+	@Column(name = "number", length = 11)
 	private int number;
 	
+	@Column(name = "batch", length = 45)
 	private String batch;
 	
+	@Column(name = "nominal_value")
 	private double nominalValue;
 	
-	private int currencyId;
+	@ManyToOne
+	@JoinColumn(name = "currency_id")
+	private Currency currency;
 	
-	private double volume;
+	@Column(name = "volume")
+	private long volume;
 	
+	@Column(name = "quantity")
 	private int quantity;
 	
+	@Column(name = "store_date")
+	@Temporal(TemporalType.DATE)
 	private Date storeDate;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	
+	@Column(name = "followon_date")
+	@Temporal(TemporalType.DATE)
+	private Date followOnDate;
+	
+	@Column(name = "partial_annulation")
+	private boolean partialAnnulation;
 
 	public boolean isPrivileged() {
 		return privileged;
+	}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
 	}
 
 	public void setPrivileged(boolean privileged) {
@@ -102,19 +126,11 @@ public class SharesIssue {
 		this.nominalValue = nominalValue;
 	}
 
-	public int getCurrencyId() {
-		return currencyId;
-	}
-
-	public void setCurrencyId(int currencyId) {
-		this.currencyId = currencyId;
-	}
-
 	public double getVolume() {
 		return volume;
 	}
 
-	public void setVolume(double volume) {
+	public void setVolume(long volume) {
 		this.volume = volume;
 	}
 
@@ -132,6 +148,22 @@ public class SharesIssue {
 
 	public void setStoreDate(Date storeDate) {
 		this.storeDate = storeDate;
+	}
+
+	public Date getFollowOnDate() {
+		return followOnDate;
+	}
+
+	public void setFollowOnDate(Date followOnDate) {
+		this.followOnDate = followOnDate;
+	}
+
+	public boolean isPartialAnnulation() {
+		return partialAnnulation;
+	}
+
+	public void setPartialAnnulation(boolean partialAnnulation) {
+		this.partialAnnulation = partialAnnulation;
 	}
 
 }

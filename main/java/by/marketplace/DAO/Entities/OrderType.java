@@ -1,16 +1,17 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "depository")
-public class Depository {
+@Table(name = "order_type")
+public class OrderType {
 
 	@Id
-	@Column(name = "dep_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "z_type_id")
 	private int id;
 	
-	@Column(name = "dep_name", length = 45)
+	@Column(name = "z_type_name")
 	private String name;
 
 	public int getId() {
@@ -28,5 +29,5 @@ public class Depository {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 }

@@ -1,4 +1,4 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
 import javax.persistence.*;
 
@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class AccountType {
 
 	@Id
+	@Column(name = "acc_type_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	

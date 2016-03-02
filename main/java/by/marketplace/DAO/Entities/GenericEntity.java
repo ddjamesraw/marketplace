@@ -1,20 +1,22 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
+
+import org.hibernate.annotations.DiscriminatorOptions;
 
 @Entity
 @Table(name = "entity")
-public class GenericEntity {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class GenericEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true, nullable = false, name = "entity_id")
+	@Column(name = "id")
 	private int id;
-	
-	@ManyToOne
-	@JoinColumn(nullable = false, name = "entity_type_id")
-	private EntityType entityType = new EntityType();
+
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "entity_type_id")
+	private EntityType entityType;
 
 	public int getId() {
 		return id;

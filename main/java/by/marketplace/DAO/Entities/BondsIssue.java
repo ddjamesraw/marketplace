@@ -1,33 +1,66 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
 import java.util.Date;
+import javax.persistence.*;
 
-public class BondsIssue {
+
+@Entity
+@Table(name = "bond_issue")
+@DiscriminatorValue("2")
+public class BondsIssue extends Asset{
 	
-	private int assetId;
-	
+	@Column(name = "ticker", length = 45)
 	private String ticker;
-	
+
+	@Column(name = "regdate")
+	@Temporal(TemporalType.DATE)
 	private Date regDate;
 	
+	@Column(name = "regnumber", length = 45)
 	private String regnumber;
 	
+	@Column(name = "code", length = 45)
 	private String code;
 	
+	@Column(name = "number")
 	private int number;
 	
-	private String batch;
+//	@Column(name = "batch", length = 45)
+//	private String batch;
 	
+	@Column(name = "nominal_value")
 	private double nominalValue;
 	
-	private int currencyId;
+	@ManyToOne
+	@JoinColumn(name = "currency_id")
+	private Currency currency;
+
+	@Column(name = "volume")
+	private long volume;
 	
-	public int getAssetId() {
-		return assetId;
+	@Column(name = "quantity")
+	private int quantity;
+	
+	@Column(name = "store_date")
+	@Temporal(TemporalType.DATE)
+	private Date storeDate;
+
+	@Column(name = "lifecycle")
+	private int lifeCycle;
+
+	@Column(name = "maturity_date")
+	@Temporal(TemporalType.DATE)
+	private Date issueMaturityDate;
+	
+	@Column(name = "interest_rate")
+	private double interestRate;
+
+	public Currency getCurrency() {
+		return currency;
 	}
 
-	public void setAssetId(int assetId) {
-		this.assetId = assetId;
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
 	}
 
 	public String getTicker() {
@@ -69,14 +102,14 @@ public class BondsIssue {
 	public void setNumber(int number) {
 		this.number = number;
 	}
-
-	public String getBatch() {
-		return batch;
-	}
-
-	public void setBatch(String batch) {
-		this.batch = batch;
-	}
+//
+//	public String getBatch() {
+//		return batch;
+//	}
+//
+//	public void setBatch(String batch) {
+//		this.batch = batch;
+//	}
 
 	public double getNominalValue() {
 		return nominalValue;
@@ -84,22 +117,6 @@ public class BondsIssue {
 
 	public void setNominalValue(double nominalValue) {
 		this.nominalValue = nominalValue;
-	}
-
-	public int getCurrencyId() {
-		return currencyId;
-	}
-
-	public void setCurrencyId(int currencyId) {
-		this.currencyId = currencyId;
-	}
-
-	public double getVolume() {
-		return volume;
-	}
-
-	public void setVolume(double volume) {
-		this.volume = volume;
 	}
 
 	public int getQuantity() {
@@ -142,17 +159,12 @@ public class BondsIssue {
 		this.interestRate = interestRate;
 	}
 
-	private double volume;
-	
-	private int quantity;
-	
-	private Date storeDate;
+	public long getVolume() {
+		return volume;
+	}
 
-	private int lifeCycle;
-	
-	private Date issueMaturityDate;
-	
-	private double interestRate;
-
+	public void setVolume(long volume) {
+		this.volume = volume;
+	}
 
 }

@@ -1,16 +1,27 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
 import java.util.Date;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 @Entity
 @Table(name = "user")
-public class User {
+@DiscriminatorValue("10")
+public class User extends GenericEntity {
 	
-	@Id
-	@Column(unique = true, nullable = false, name = "id")
-	private int id;
+	/** Hibernate bug not fixed by now (28.02.2016)
+	 *  https://hibernate.atlassian.net/browse/ANN-140
+	 *  
+	 *  We have set discriminator values by ourselves inside initializer
+	 */
+	{
+		EntityType et = new EntityType();
+		et.setId(10);
+		this.setEntityType(et);
+	}
 
 	@Column(name = "addr", length = 60)
 	private String address;
@@ -27,14 +38,6 @@ public class User {
 	@Temporal(TemporalType.TIMESTAMP)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Date regDate;
-	
-	@OneToOne
-	@JoinColumn(name = "passport_sn")
-	private Passport passport;
-
-	public void setPassport(Passport passport) {
-		this.passport = passport;
-	}
 	
 	public void setAddress(String address) {
 		this.address = address;
@@ -73,18 +76,6 @@ public class User {
 
 	public Date getRegDate() {
 		return regDate;
-	}
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Passport getPassport() {
-		return passport;
 	}
 
 }

@@ -1,9 +1,17 @@
-package by.marketplace.DAO;
+package by.marketplace.DAO.Entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "asset_type")
 public class AssetType {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "asset_type_id")
 	private int id;
 	
+	@Column(name = "asset_name", length = 45)
 	private String name;
 
 	public int getId() {
