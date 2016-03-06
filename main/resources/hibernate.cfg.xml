@@ -18,37 +18,37 @@
       root
    </property>
    <property name="hibernate.connection.password">
-      rootpass
+      root
    </property>
    <mapping package="by.marketplace.DAO.Entities" />
-   <mapping class="by.marketplace.DAO.Entities.Account"/>
-   <mapping class="by.marketplace.DAO.Entities.AccountDetails"/>
-   <mapping class="by.marketplace.DAO.Entities.AccountType"/>
-   <mapping class="by.marketplace.DAO.Entities.AccountSecurityGroup"/>
-   <mapping class="by.marketplace.DAO.Entities.Asset"/>
-   <mapping class="by.marketplace.DAO.Entities.AssetType"/>
-   <mapping class="by.marketplace.DAO.Entities.BondsIssue"/>
-   <mapping class="by.marketplace.DAO.Entities.Broker"/>
-   <mapping class="by.marketplace.DAO.Entities.BrokerContract"/>
-   <mapping class="by.marketplace.DAO.Entities.BrokerService"/>
-   <mapping class="by.marketplace.DAO.Entities.BrokServicePlan"/>
-   <mapping class="by.marketplace.DAO.Entities.Currency"/>
-   <mapping class="by.marketplace.DAO.Entities.Depository"/>
-   <mapping class="by.marketplace.DAO.Entities.DepContract"/>
-   <mapping class="by.marketplace.DAO.Entities.DepService"/>
-   <mapping class="by.marketplace.DAO.Entities.DepServicePlan"/>
-   <mapping class="by.marketplace.DAO.Entities.GenericEntity"/>
-   <mapping class="by.marketplace.DAO.Entities.EntityGroup"/>
-   <mapping class="by.marketplace.DAO.Entities.EntityType"/>
-   <mapping class="by.marketplace.DAO.Entities.Issuer"/>
-   <mapping class="by.marketplace.DAO.Entities.MarketPrice"/>
-   <mapping class="by.marketplace.DAO.Entities.Order"/>
-   <mapping class="by.marketplace.DAO.Entities.OrderType"/>
-   <mapping class="by.marketplace.DAO.Entities.Passport"/>
-   <mapping class="by.marketplace.DAO.Entities.PricingType"/>
-   <mapping class="by.marketplace.DAO.Entities.SharesIssue"/>
-   <mapping class="by.marketplace.DAO.Entities.SecurityPolicy"/>
-   <mapping class="by.marketplace.DAO.Entities.Transaction"/>
-   <mapping class="by.marketplace.DAO.Entities.User"/>
+   <mapping class="by.marketplace.DAO.Entities.AccountDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.AccountDetailsDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.AccountTypeDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.AccountSecurityGroupDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.AssetDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.AssetTypeDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.BondsIssueDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.BrokerDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.BrokerContractDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.BrokerServiceDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.BrokServicePlanDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.CurrencyDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.DepositoryDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.DepContractDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.DepServiceDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.DepServicePlanDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.GenericEntityDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.EntityGroupDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.EntityTypeDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.IssuerDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.MarketPriceDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.OrderDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.OrderTypeDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.PassportDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.PricingTypeDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.SharesIssueDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.SecurityPolicyDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.TransactionDAO"/>
+   <mapping class="by.marketplace.DAO.Entities.UserDAO"/>
 </session-factory>
 </hibernate-configuration>
