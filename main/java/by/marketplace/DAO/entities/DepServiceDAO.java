@@ -1,19 +1,19 @@
-package by.marketplace.DAO.Entities;
+package by.marketplace.DAO.entities;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "brok_service")
-public class BrokerServiceDAO {
+@Table(name = "dep_service")
+public class DepServiceDAO {
 
 	@Id
-	@Column(name = "service_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "service_id")
 	private int id;
 	
 	@OneToOne
-	@JoinColumn(name = "brok_id")
-	private BrokerDAO broker;
+	@JoinColumn(name = "dep_id")
+	private DepositoryDAO depository;
 	
 	@Column(name = "service_name")
 	private String name;
@@ -40,12 +40,12 @@ public class BrokerServiceDAO {
 		this.id = id;
 	}
 
-	public BrokerDAO getBroker() {
-		return broker;
+	public DepositoryDAO getDepository() {
+		return depository;
 	}
 
-	public void setBroker(BrokerDAO broker) {
-		this.broker = broker;
+	public void setDepository(DepositoryDAO depository) {
+		this.depository = depository;
 	}
 
 	public String getName() {
@@ -87,5 +87,5 @@ public class BrokerServiceDAO {
 	public void setCurrency(CurrencyDAO currency) {
 		this.currency = currency;
 	}
-	
+
 }

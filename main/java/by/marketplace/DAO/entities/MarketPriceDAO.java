@@ -1,4 +1,4 @@
-package by.marketplace.DAO.Entities;
+package by.marketplace.DAO.entities;
 
 import java.io.Serializable;
 import java.util.Date;

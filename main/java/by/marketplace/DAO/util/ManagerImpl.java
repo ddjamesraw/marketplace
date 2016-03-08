@@ -12,12 +12,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Criterion;
 
-/**
- * <p><b>Singleton</b></p>
- * @author A.Lagunov
- *
- */
-public class DAOInterface {
+public class ManagerImpl implements Manager {
 	
 	/**
 	 * <p>Save an object and return generated <b>int</b> id</p>
@@ -94,7 +89,7 @@ public class DAOInterface {
 			ex.printStackTrace();
 			throw new HibernateException(ex);
 		} finally {
-			session.close();
+			if (session!=null) session.close();
 		}
 		
 		return result;
@@ -123,11 +118,6 @@ public class DAOInterface {
 		
 	}
 	
-	public static DAOInterface getInstance() {
-		if (instance==null) instance = new DAOInterface();
-		return instance;
-	}
-	
 	/**
 	 * SessionFactory initializer
 	 */
@@ -154,10 +144,6 @@ public class DAOInterface {
 			factory.close();
 		}
 	}
-	
-	private static DAOInterface instance = new DAOInterface();
-	
-	private DAOInterface(){}
 	
 	private static SessionFactory factory;
 	

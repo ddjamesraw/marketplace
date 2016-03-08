@@ -6,30 +6,30 @@
   <packaging>war</packaging>
   <name>Marketplace</name>
   <build>
-      <sourceDirectory>src</sourceDirectory>
-    <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
-    <testSourceDirectory>src/test</testSourceDirectory>
+    <directory>C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps</directory>
+    <finalName>marketplace</finalName>
+    <sourceDirectory>main/java</sourceDirectory>
+    <scriptSourceDirectory>main/scripts</scriptSourceDirectory>
+    <testSourceDirectory>test/java</testSourceDirectory>
     <outputDirectory>target/classes</outputDirectory>
     <testOutputDirectory>target/test-classes</testOutputDirectory>
     <resources>
       <resource>
-        <directory>src/main/resources</directory>
+        <directory>main/resources</directory>
       </resource>
     </resources>
     <testResources>
       <testResource>
-        <directory>src/test/resources</directory>
+        <directory>test/resources</directory>
       </testResource>
     </testResources>
-    <directory>target</directory>
-    <finalName>Marketplace-0.0.1-SNAPSHOT</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.3</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>1.7</source>
+          <target>1.7</target>
         </configuration>
       </plugin>
       <plugin>
@@ -37,9 +37,21 @@
         <version>2.6</version>
         <configuration>
           <warSourceDirectory>webapp</warSourceDirectory>
-          <failOnMissingWebXml>true</failOnMissingWebXml>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
+      <plugin>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2</version>
+            <configuration>
+               <url>http://192.168.1.2:8080/manager/text</url>
+               <username>maven_depl</username>
+               <password>2020326</password>
+               <path>/marketplace</path>
+               <update>true</update>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
   <dependencyManagement>
@@ -55,8 +67,18 @@
   			<version>4.12</version>
   		</dependency>
   		<dependency>
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-webmvc</artifactId>
+  			<version>4.0.6.RELEASE</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>javax.servlet</groupId>
+  			<artifactId>javax.servlet-api</artifactId>
+  			<version>3.1.0</version>
+  		</dependency>
+  		<dependency>
   			<groupId>org.hibernate.javax.persistence</groupId>
-  			<artifactId>hibernate-jpa-2.0-api</artifactId>
+  			<artifactId>hibernate-jpa-2.1-api</artifactId>
   			<version>1.0.0.Final</version>
   		</dependency>
   		<dependency>
@@ -76,8 +98,16 @@
   		<artifactId>junit</artifactId>
   	</dependency>
   	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-webmvc</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>javax.servlet-api</artifactId>
+  	</dependency>
+  	<dependency>
   		<groupId>org.hibernate.javax.persistence</groupId>
-  		<artifactId>hibernate-jpa-2.0-api</artifactId>
+  		<artifactId>hibernate-jpa-2.1-api</artifactId>
   	</dependency>
   	<dependency>
   		<groupId>mysql</groupId>
