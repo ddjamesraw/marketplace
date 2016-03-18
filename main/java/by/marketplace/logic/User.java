@@ -2,23 +2,21 @@ package by.marketplace.logic;
 
 import java.util.Date;
 
+import by.marketplace.repository.vo.UserVO;
+
 public interface User {
+	public void constructFromVO(Object userVO);
+	public UserVO getVO();
 	
-	public int getId();
-	
-	public String getAddress();
-	public void setAddress(String address);
-	
-	public String getCity();
 	public void setCity(String city);
+	public String getCity();
 	
-	public String getPhone();
-	public void setPhone(String phone);
-	
-	public String getEmail();
 	public void setEmail(String email);
+	public String getEmail();
 	
-	public Date getRegdate();
+	public void setPhone(String phone);
+	public String getPhone();
+	
 	public void setRegdate(Date regdate);
-	
+	public Date getRegdate();
 }

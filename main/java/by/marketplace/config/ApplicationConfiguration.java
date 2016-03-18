@@ -3,27 +3,32 @@ package by.marketplace.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import by.marketplace.DAO.util.Manager;
-import by.marketplace.DAO.util.ManagerImpl;
-import by.marketplace.logic.UserFactory;
-import by.marketplace.logic.UserFactoryImpl;
-import by.marketplace.logic.UserService;
+import by.marketplace.logic.UserImpl;
+import by.marketplace.logic.UserServiceImpl;
+import by.marketplace.repository.Repository;
+import by.marketplace.repository.RepositoryImpl;
+import by.marketplace.repository.vo.UserVO;
 
 @Configuration
 public class ApplicationConfiguration {
 
 	@Bean(name="userService")
-	public UserService getUserService() {
-		return new UserService();
+	public UserServiceImpl getUserService() {
+		return new UserServiceImpl();
 	}
 	
-	@Bean(name="userFactory")
-	public UserFactory getUserFactory() {
-		return new UserFactoryImpl();
+	@Bean(name="repository")
+	public Repository getRepository() {
+		return new RepositoryImpl();
 	}
 	
-	@Bean(name="manager")
-	public Manager getManager() {
-		return new ManagerImpl();
+	@Bean(name="userVoClass")
+	public Class<?> getUserVoClass() {
+		return UserVO.class;
+	}
+	
+	@Bean(name="userImplClass")
+	public Class<?> getUserImplClass() {
+		return UserImpl.class;
 	}
 }

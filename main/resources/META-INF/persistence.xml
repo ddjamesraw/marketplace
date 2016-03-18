@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="hibernate-mysql">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>by.marketplace.repository.dao.entities.AccountDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.AccountTypeDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.AccountSecurityGroupDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.BondsIssueDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.BrokerDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.BrokerContractDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.BrokerServiceDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.BrokServicePlanDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.DepositoryDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.DepContractDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.DepServiceDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.DepServicePlanDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.EntityTypeDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.EntityGroupDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.AssetTypeDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.CurrencyDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.UserDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.PassportDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.SharesIssueDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.SecurityPolicyDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.IssuerDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.TransactionDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.MarketPriceDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.OrderTypeDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.OrderDAO.class</class>
+        <class>by.marketplace.repository.dao.entities.PricingTypeDAO.class</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/marketplacetest?useSSL=false"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="rootpass"/>
+        </properties>
+    </persistence-unit>
+</persistence>

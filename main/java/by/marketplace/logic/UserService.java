@@ -1,36 +1,12 @@
 package by.marketplace.logic;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
-import by.marketplace.DAO.util.Manager;
+import org.springframework.validation.annotation.Validated;
 
-public class UserService {
-	
-	private Manager manager;
-	
-	private UserFactory factory;
-	
-	private static int lastPersistedId;
-	
-	public User get(int id) {
-		return factory.getUser(id);
-	}
-
-	public synchronized void persist(User u) {
-		lastPersistedId = (int) manager.save(u);
-	}
-	
-	public static int getLastPersistedId() {
-		return lastPersistedId;
-	}
-
-	@Autowired
-	public void setManager(Manager manager) {
-		this.manager = manager;
-	}
-	
-	@Autowired
-	public void setFactory(UserFactory factory) {
-		this.factory = factory;
-	}
+@Validated
+public interface UserService {
+	public void save(User u);
+	public User get(int id);
+	public List<User> getAll();
 }
