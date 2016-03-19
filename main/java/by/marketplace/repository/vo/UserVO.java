@@ -1,13 +1,6 @@
 package by.marketplace.repository.vo;
 
-import java.util.Date;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 @Table(name = "user")
@@ -40,10 +33,6 @@ public class UserVO extends GenericEntityVO {
 	
 	@Column(name = "email", length = 255)
 	private String email;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Date regDate;
 
 	public void setCity(String city) {
 		this.city = city;
@@ -57,10 +46,6 @@ public class UserVO extends GenericEntityVO {
 		this.email = email;
 	}
 
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
 	public String getCity() {
 		return city;
 	}
@@ -71,10 +56,6 @@ public class UserVO extends GenericEntityVO {
 
 	public String getEmail() {
 		return email;
-	}
-
-	public Date getRegDate() {
-		return regDate;
 	}
 
 }

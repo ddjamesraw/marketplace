@@ -1,12 +1,10 @@
 package by.marketplace.logic;
 
-import java.util.List;
-
 import org.springframework.validation.annotation.Validated;
 
+import by.marketplace.repository.vo.UserVO;
+
 @Validated
-public interface UserService {
-	public void save(User u);
-	public User get(int id);
-	public List<User> getAll();
+public interface UserService extends Service<User, UserVO> {	
+	
 }

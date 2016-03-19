@@ -1,23 +1,5 @@
 package DAO;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
-import org.junit.Assert;
-import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import by.marketplace.config.ApplicationConfiguration;
-import by.marketplace.repository.Manager;
-import by.marketplace.repository.vo.*;
-
 
 public class DAOInterfaceTest {
 //	

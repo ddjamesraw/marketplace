@@ -1,5 +1,7 @@
 package by.marketplace.repository.vo;
 
+import java.util.Date;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -18,7 +20,19 @@ public abstract class GenericEntityVO {
 	@JoinColumn(name = "entity_type_id")
 	@NotNull
 	private EntityTypeVO entityType;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Date regdate;
 
+	public void setRegDate(Date regDate) {
+		this.regdate = regDate;
+	}
+
+	public Date getRegDate() {
+		return regdate;
+	}
+	
 	public int getId() {
 		return id;
 	}

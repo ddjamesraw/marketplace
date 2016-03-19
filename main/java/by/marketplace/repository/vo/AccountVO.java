@@ -3,8 +3,6 @@ package by.marketplace.repository.vo;
 import java.util.Date;
 import javax.persistence.*;
 
-import javassist.bytecode.analysis.Type;
-
 @Entity
 @Table(name = "account")
 public class AccountVO {

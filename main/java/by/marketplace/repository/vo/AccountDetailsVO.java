@@ -1,10 +1,6 @@
 package by.marketplace.repository.vo;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "account_details")

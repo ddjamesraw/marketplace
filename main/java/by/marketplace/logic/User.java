@@ -4,9 +4,10 @@ import java.util.Date;
 
 import by.marketplace.repository.vo.UserVO;
 
-public interface User {
-	public void constructFromVO(Object userVO);
-	public UserVO getVO();
+public interface User extends ConstructableFromVo<UserVO> {
+	
+	public void setId(int id);
+	public int getId();
 	
 	public void setCity(String city);
 	public String getCity();

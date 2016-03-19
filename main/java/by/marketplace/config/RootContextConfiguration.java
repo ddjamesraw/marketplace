@@ -1,22 +1,9 @@
 package by.marketplace.config;
 
-import java.nio.charset.StandardCharsets;
-
-import javax.inject.Inject;
-
-import org.hibernate.validator.HibernateValidator;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 @ComponentScan(

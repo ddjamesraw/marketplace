@@ -5,17 +5,11 @@ import java.util.Date;
 
 import by.marketplace.repository.vo.UserVO;
 
-public class UserImpl implements User{
+public class UserImpl implements User {
 	
 	@Override
 	public void constructFromVO(Object object) {
-		UserVO userVO = null;
-		try {
-			userVO = (UserVO) object;
-		} catch(ClassCastException e) {
-			e.printStackTrace();
-			throw e;
-		}
+		UserVO userVO = UserVO.class.cast(object);
 		this.id = userVO.getId();
 		this.city = userVO.getCity();
 		this.phone = userVO.getPhone();
@@ -90,6 +84,4 @@ public class UserImpl implements User{
 	private String email;
 	
 	private Date regdate;
-
-
 }

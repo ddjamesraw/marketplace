@@ -3,32 +3,33 @@ package by.marketplace.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import by.marketplace.logic.UserImpl;
-import by.marketplace.logic.UserServiceImpl;
+import by.marketplace.logic.*;
 import by.marketplace.repository.Repository;
 import by.marketplace.repository.RepositoryImpl;
+import by.marketplace.repository.vo.DepositoryVO;
 import by.marketplace.repository.vo.UserVO;
 
 @Configuration
 public class ApplicationConfiguration {
 
-	@Bean(name="userService")
+	@Bean(name = "userService")
 	public UserServiceImpl getUserService() {
 		return new UserServiceImpl();
 	}
 	
-	@Bean(name="repository")
-	public Repository getRepository() {
-		return new RepositoryImpl();
+	@Bean(name = "userRepository")
+	public Repository<User, UserVO> getUserRepository() {
+		return new RepositoryImpl<User, UserVO>(UserImpl.class, UserVO.class);
 	}
 	
-	@Bean(name="userVoClass")
-	public Class<?> getUserVoClass() {
-		return UserVO.class;
+	@Bean(name = "depService")
+	public DepositoryService getDepService() {
+		return new DepositoryServiceImpl();
 	}
 	
-	@Bean(name="userImplClass")
-	public Class<?> getUserImplClass() {
-		return UserImpl.class;
+	@Bean(name = "depRepository")
+	public Repository<Depository, DepositoryVO> getDepRepository() {
+		return new RepositoryImpl<Depository, DepositoryVO>(
+				DepositoryImpl.class, DepositoryVO.class);
 	}
 }
